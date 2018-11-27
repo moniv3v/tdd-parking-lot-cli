@@ -1,11 +1,5 @@
 package com.oocl.cultivation;
 
-import com.oocl.cultivation.ParkingBoy;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class SmartParkingBoy extends ParkingBoy {
     private String lastErrorMessage;
 

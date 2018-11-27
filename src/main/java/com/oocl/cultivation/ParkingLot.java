@@ -15,6 +15,10 @@ public class ParkingLot {
         this.capacity = capacity;
     }
 
+    public double getPositionRate(){
+        return (double) getAvailableParkingPosition() / (double) capacity ;
+    }
+
     public int getAvailableParkingPosition() {
         return capacity-cars.size();
     }

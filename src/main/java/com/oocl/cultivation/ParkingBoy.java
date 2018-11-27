@@ -13,15 +13,22 @@ public class ParkingBoy {
         this.parkingLots.addAll(Arrays.asList(parkingLots));
     }
 
+    public ParkingLot selectParkingLog(){
+        for (ParkingLot parkingLot : parkingLots) {
+            if (parkingLot.getAvailableParkingPosition() >= 1) {
+                return parkingLot;
+            }
+        }
+        return null;
+    }
+
     public ParkingTicket park(Car car) {
         // TODO: Please implement the method
         ParkingTicket ticket = null;
-        for (ParkingLot parkingLot : parkingLots) {
-            if (parkingLot.getAvailableParkingPosition() >= 1) {
-                lastErrorMessage = null;
-                ticket = parkingLot.park(car);
-                break;
-            }
+        ParkingLot parkingLot = selectParkingLog();
+        if(parkingLot!=null){
+            lastErrorMessage = null;
+            ticket = parkingLot.park(car);
         }
         if (ticket == null) {
             lastErrorMessage = "The parking lot is full.";
