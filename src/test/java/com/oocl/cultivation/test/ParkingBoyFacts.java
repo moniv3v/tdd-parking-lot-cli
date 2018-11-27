@@ -167,11 +167,8 @@ class ParkingBoyFacts {
         Car car = new Car();
         Car car2 = new Car();
         ParkingTicket ticket = parkingBoy.park(car);
+        assertEquals(0, parkingLots[0].getAvailableParkingPosition());
         ParkingTicket ticket2 = parkingBoy.park(car2);
-        Car fetched = parkingBoy.fetch(ticket);
-        Car fetched2 = parkingBoy.fetch(ticket2);
-
-        assertSame(fetched, car);
-        assertSame(fetched2, car2);
+        assertEquals(0,parkingLots[1].getAvailableParkingPosition());
     }
 }

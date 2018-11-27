@@ -18,8 +18,25 @@ public class ParkingLot {
     public int getAvailableParkingPosition() {
         return capacity-cars.size();
     }
+    public int tmpFunction(){
+        return this.cars.size();
+    }
 
     public Map<ParkingTicket, Car> getCars() {
         return cars;
+    }
+
+    public Car fetch(ParkingTicket ticket) {
+        if(cars.containsKey(ticket)){
+            return cars.remove(ticket);
+        }
+        return null;
+    }
+
+    public ParkingTicket park(Car car){
+        ParkingTicket parkingTicket = new ParkingTicket();
+        cars.put(parkingTicket, car);
+
+        return parkingTicket;
     }
 }
